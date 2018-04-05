@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Manhattan Intercity Bus Stops</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='map'></div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2tlZWpheSIsImEiOiJBd2N4NUMwIn0.ZDcWmkFrdmBrCDC6z0jhLw';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/skeejay/cjfb8lnkt28a82sp8rn15viwt' // replace this with your style URL
+    });
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // code from the next step will go here
+    map.on('click', function(e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['intercity-bus-stops'] // replace this with the name of the layer
+      });
+
+      if (!features.length) {
+        return;
+      }
+
+      var feature = features[0];
+
+      var popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h2 style="font-weight: normal;">' + feature.properties.place_name + '</h2>')
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map);
+    });
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'intercity-bus-stops', function() {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'intercity-bus-stops', function() {
+      map.getCanvas().style.cursor = '';
+    });
+
+    </script>
+  </body>
+</html>
