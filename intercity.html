@@ -1,65 +1,89 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset='utf-8' />
-    <title>Manhattan Intercity Bus Stops</title>
+    <title>Intercity Bus Stops</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        .mapboxgl-popup {
+		  max-width: 400px;
+		  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		}
     </style>
-  </head>
-  <body>
-    <div id='map'></div>
-    <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic2tlZWpheSIsImEiOiJBd2N4NUMwIn0.ZDcWmkFrdmBrCDC6z0jhLw';
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/skeejay/cjfb8lnkt28a82sp8rn15viwt' // replace this with your style URL
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2tlZWpheSIsImEiOiJBd2N4NUMwIn0.ZDcWmkFrdmBrCDC6z0jhLw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/skeejay/cjfb8lnkt28a82sp8rn15viwt'
+});
+
+map.on('load', function () {
+	// Add zoom and rotation controls to the map.
+	map.addControl(new mapboxgl.NavigationControl({ position: 'top-left' }));
+
+
+    map.addLayer({
+        'id': 'Intercity_Bus_Stops',
+        'type': 'circle',
+        'source': {
+            type: 'vector',
+            url: 'mapbox://skeejay.cjfbo4s00165w33mhs9t4ovlu-3du8d'
+        },
+        'source-layer': 'Intercity_Bus_Stops',
+        'paint': {
+      		// Add data-driven styles for circle radius
+            'circle-radius': {
+            	'property': 'total',
+                'type': 'exponential',
+                'stops': [[0, 2], [200, 100]]
+            },
+            'circle-color': '#ff0000', 
+            'circle-opacity': 0.4,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#ff0000'
+        }
     });
+});
 
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
+// When a click event occurs near a place, open a popup at the location of
+// the feature, with HTML description from its properties
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, { layers: ['Intercity_Bus_Stops'] });
 
-    // code from the next step will go here
-    map.on('click', function(e) {
-      var features = map.queryRenderedFeatures(e.point, {
-        layers: ['intercity-bus-stops'] // replace this with the name of the layer
-      });
+  // if the features have no info, return nothing
+  if (!features.length) {
+    return;
+  }
 
-      if (!features.length) {
-        return;
-      }
+  var feature = features[0];
 
-      var feature = features[0];
+  // Populate the popup and set its coordinates
+  // based on the feature found
+  var popup = new mapboxgl.Popup()
+  .setLngLat(feature.geometry.coordinates)
+  .setHTML('<div id=\'popup\' class=\'popup\' style=\'z-index: 10;\'> <h5> Detail: </h5>' +
+  '<ul class=\'list-group\'>' +
+  '<li class=\'list-group-item\'> Date: ' + feature.properties['place_name'] + ' </li>' +
+  '<li class=\'list-group-item\'> Pick-ups: ' + feature.properties['pickups'] + ' </li>' +
+  '<li class=\'list-group-item\'> Drop-offs: ' + feature.properties['dropoffs'] + ' </li></ul></div>')
+  .addTo(map);
+});
 
-      var popup = new mapboxgl.Popup({ offset: [0, -15] })
-        .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h2 style="font-weight: normal;">' + feature.properties.place_name + '</h2>')
-        .setLngLat(feature.geometry.coordinates)
-        .addTo(map);
-    });
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', 'intercity-bus-stops', function() {
-      map.getCanvas().style.cursor = 'pointer';
-    });
+// Use the same approach as above to indicate that the symbols are clickable
+// by changing the cursor style to 'pointer'
+map.on('mousemove', function(e) {
+  var features = map.queryRenderedFeatures(e.point, { layers: ['pedestrian_volume'] });
+  map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+});
+</script>
 
-    // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'intercity-bus-stops', function() {
-      map.getCanvas().style.cursor = '';
-    });
-
-    </script>
-  </body>
+</body>
 </html>
