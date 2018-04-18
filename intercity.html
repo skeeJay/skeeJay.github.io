@@ -43,7 +43,7 @@ map.on('load', function () {
             'circle-radius': {
             	'property': 'total',
                 'type': 'exponential',
-                'stops': [[0, 2], [200, 100]]
+                'stops': [[0, 2], [500, 125]]
             },
             'circle-color': '#ff0000', 
             'circle-opacity': 0.4,
@@ -69,9 +69,8 @@ map.on('click', function(e) {
   // based on the feature found
   var popup = new mapboxgl.Popup()
   .setLngLat(feature.geometry.coordinates)
-  .setHTML('<div id=\'popup\' class=\'popup\' style=\'z-index: 10;\'> <h5> Detail: </h5>' +
-  '<ul class=\'list-group\'>' +
-  '<li class=\'list-group-item\'> Date: ' + feature.properties['place_name'] + ' </li>' +
+  .setHTML('<div id=\'popup\' class=\'popup\' style=\'z-index: 10;\'> <h3 style=\'margin: 0.5em;\'>' + feature.properties['place_name'] + '</h3>' +
+  '<ul style=\'margin: 0;\' class=\'list-group\'>' +
   '<li class=\'list-group-item\'> Pick-ups: ' + feature.properties['pickups'] + ' </li>' +
   '<li class=\'list-group-item\'> Drop-offs: ' + feature.properties['dropoffs'] + ' </li></ul></div>')
   .addTo(map);
