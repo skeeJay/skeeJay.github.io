@@ -45,7 +45,7 @@
             <dt><h2>{{ .Title }}</h2></dt>
             <dd>
                 {{ .Content }}
-                <p style="font-size: .8em; color: #999"><em>{{ .Date.Format "2006-01-02" }}</em></p>
+                <p style="font-size: .8em; color: #999"><a href="{{ .RelPermalink }}"><em>{{ .Date.Format "January 2, 2006" }}</em></a></p>
             </dd>
         </section>
         {{ end }}

@@ -5,3 +5,9 @@ title = 'First Post'
 +++
 
 Hello world.
+
+> This is the first line of the quote.
+> This is the second line of the quote.
+> This is the third line of the quote.
+
+Lorem ipsum.
