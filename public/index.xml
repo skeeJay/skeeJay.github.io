@@ -14,11 +14,11 @@
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>First Post</title>
-				<link>http://localhost:1313/blog/first-post/</link>
+				<title>Exclusive renderings of Penn Station overhaul show Trump’s name with presidential seal</title>
+				<link>http://localhost:1313/blog/big-swings/</link>
 				<pubDate>Thu, 28 May 2026 07:52:48 -0400</pubDate>
-				<guid>http://localhost:1313/blog/first-post/</guid>
-				<description>&lt;p&gt;Hello world.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;This is the first line of the quote.&#xA;This is the second line of the quote.&#xA;This is the third line of the quote.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Lorem ipsum.&lt;/p&gt;</description>
+				<guid>http://localhost:1313/blog/big-swings/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://gothamist.com/news/exclusive-renderings-of-penn-station-overhaul-show-trumps-name-with-presidential-seal&#34;&gt;Gothamist&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;p&gt;These renderings are pretty minor modifications from the earlier plan ASTM presented in 2023. It’s being explicitly reported that the feds have chosen this plan because Trump chickened out of pushing Dolan to move MSG across the street.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
