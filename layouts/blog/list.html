@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>E.J. Kalafarski</title>
+
+    <link rel="me" href="https://mastodon.social/@ejkalafarski"/>
+
+    <!-- Open Graph bullshit, for home page: -->
+    <meta property="og:title" content="You Are Here, with E.J. Kalafarski"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://ejkalafarski.com/"/>
+    <meta property="og:image" content="https://daringfireball.net/graphics/df-wide-card.png"/>
+    <meta property="og:site_name" content="E.J. Kalafarski"/>
+    <meta property="og:description" content="Commentary on Apple, technology, design, politics, and more."/>
+
+    <style>
+    * { margin: 0; box-sizing: border-box; }
+    :selection { backgorund-color: yellow; }
+    body { background-color: #FCFAF8; font-family: sans-serif; color: #444; }
+    main { width: 620px; margin: 0 auto 0 auto; }
+    h1 { font-family: monospace; font-size: 1.5em; font-weight: normal; color: #888; margin: 4em 0 0; }
+    section { margin: 7em 3em; }
+    h2 { font-family: Georgia; font-weight: normal; margin: 0.5em 0; }
+    blockquote { margin: 0 0 0 0.25em; padding: 0 0em 0 1em; border-left: 1px solid #777; border-right: 0px solid #777; }
+    p { margin: 1em 0; }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQM5FTX5YG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PQM5FTX5YG');
+    </script>
+
+</head>
+<body>
+    <main>
+        <h1>You Are Here with E.J. Kalafarski</h1>
+        {{ range .Pages.ByDate.Reverse }}
+        <section>
+            <dt><h2>{{ .Title }}</h2></dt>
+            <dd>
+                {{ .Content }}
+                <p style="font-size: .8em; color: #999"><em>{{ .Date.Format "2006-01-02" }}</em></p>
+            </dd>
+        </section>
+        {{ end }}
+    </main>
+</body>
+</html>

@@ -1,0 +1,5 @@
+baseURL = 'https://ejkalafarski.com'
+locale = 'en-us'
+title = 'You Are Here with E.J. Kalafarski'
+
+disableKinds = ["taxonomy", "term"]
