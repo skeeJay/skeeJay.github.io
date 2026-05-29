@@ -7,8 +7,9 @@
     <title>E.J. Kalafarski</title>
 
     
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.svg">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="me" href="https://mastodon.social/@ejkalafarski"/>
 
@@ -24,7 +25,7 @@
     <meta property="og:url" content="https://ejkalafarski.com">
     <meta property="og:title" content="E.J. Kalafarski">
     <meta property="og:description" content="Technologist with the New Jersey Innovation Authority and the creator of You Are Here.">
-    <meta property="og:image" content="https://daringfireball.net/graphics/df-wide-card.png"/>
+    <meta property="og:image" content="/images/k-wide-card.png"/>
     <meta property="og:site_name" content="E.J. Kalafarski">
     <meta property="og:locale" content="en_US">
 
@@ -50,7 +51,7 @@
 
     body {
         background-color: #FCFAF8;
-        font-family: Georgia;
+        font-family: -apple-system, monospace;
     }
 
     main {
@@ -69,6 +70,7 @@
     }
 
     h1 {
+        font-family: Georgia;
         font-size: 2.9em;
         font-weight: normal;
         color: #444;
@@ -76,14 +78,13 @@
     }
 
     h1 strong {
-        background-color: black;
-        color: white;
-        border-bottom: 1px dashed white;
+        background: #FFFC67;
+        font-weight: normal;
     }
 
-    .subhead {
+    .subhead, nav {
         font-size: 1.5em;
-        font-weight: normal;
+        font-weight: 300;
         color: #888;
         padding: .5em 0;
     }
@@ -94,27 +95,42 @@
     }
 
     li {
-        font-family: sans-serif;
+        font-weight: 300;
         font-size: 1.1em;
-        font-weight: 100;
-        color: #aaa;
         padding: .75em 0;
         list-style: none;
     }
 
     a {
-        background: #BBFF37;
         text-decoration: none;
         border-bottom: 1px dashed black;
+        color: black;
     }
 
-    strong {
-        font-weight: normal;
+    a:hover {
+        background: #B6E3FF;
+    }
+
+    section ul li strong {
+        font-weight: 600;
         color: black;
     }
 
     section p, h2 {
-        font-family: monospace; color: #999;
+        color: #999;
+        padding: .5em 0;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    nav a {
+        margin-right: 1em;
+        font-family: monospace;
+        white-space: nowrap;
+    }
+
+    nav a span {
+        color: #999;
     }
 
     @media (max-width: 768px) {
@@ -177,7 +193,16 @@
                 </li>
             </ul>
         </section>
-
+        <section>
+            <h2>Media</h2>
+            <nav>
+                <a href="https://www.tiktok.com/@ejkalafarski">TikTok <span>@ejkalafarski</span></a>
+                <a href="https://www.instagram.com/ejkalafarski/">Instagram <span>@ejkalafarski</span></a>
+                <a href="https://www.youtube.com/@ejkalafarski">Youtube <span>@ejkalafarski</span></a>
+                <a href="https://bsky.app/profile/ejk.bsky.social">BlueSky <span>@ejk.bsky.social</span></a>
+                <a href="https://x.com/ejkalafarski">X <span>@ejkalafarski</span></a>
+            </nav>
+        </section>
     </main>
 </body>
 </html>
