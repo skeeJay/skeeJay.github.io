@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -10,8 +11,9 @@ body {
 }
 
 main {
-    width: 620px;
-    margin: 0 auto 0 auto;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 h1 {
@@ -60,4 +62,15 @@ p {
 .dateline a {
     color: #999;
     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding-right: 50px;
+    }
+
+    section {
+        min-height: auto;
+        padding: 70px 0;
+    }
 }
