@@ -65,12 +65,7 @@ p {
 }
 
 @media (max-width: 768px) {
-    main {
-        padding-right: 50px;
-    }
-
     section {
         min-height: auto;
-        padding: 70px 0;
     }
 }
