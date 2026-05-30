@@ -4,22 +4,24 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>E.J. Kalafarski</title>
+    <title>You Are Here: {{ .Title }}</title>
 
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="me" href="https://mastodon.social/@ejkalafarski"/>
+
+    <!-- Favicon -->
     <link rel="icon" href="/images/favicon.ico">
     <link rel="icon" href="/images/favicon.png">
     <link rel="icon" href="/images/favicon.svg">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="/css/site.css">
-    <link rel="me" href="https://mastodon.social/@ejkalafarski"/>
 
-    <!-- Open Graph bullshit, for home page: -->
-    <meta property="og:title" content="You Are Here with E.J. Kalafarski"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://ejkalafarski.com/"/>
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ .Title }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ .RelPermalink }}"/>
     <meta property="og:image" content="/images/k-wide-card.png"/>
-    <meta property="og:site_name" content="E.J. Kalafarski"/>
-    <meta property="og:description" content="Commentary on Apple, technology, design, politics, and more."/>
+    <meta property="og:site_name" content="You Are Here"/>
+    <meta property="og:description" content="Commentary on politics, technology, history, time travel, and more."/>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQM5FTX5YG"></script>
