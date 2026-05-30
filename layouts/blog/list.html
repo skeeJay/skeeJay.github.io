@@ -39,7 +39,7 @@
         <h1>You Are Here <span>with E.J. Kalafarski</span></h1>
         {{ range .Pages.ByDate.Reverse }}
         <section>
-            <dt><h2>{{ .Title }}</h2></dt>
+            <dt><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2></dt>
             <dd>
                 {{ .Content }}
                 <p class="dateline"><a href="{{ .RelPermalink }}"><em>{{ .Date.Format "January 2, 2006" }}</em></a></p>
