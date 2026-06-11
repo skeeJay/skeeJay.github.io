@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Tue, 02 Jun 2026 07:52:48 -0400</lastBuildDate>
+			<lastBuildDate>Thu, 11 Jun 2026 19:14:13 -0400</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Three Laws for Living With AI</title>
+				<link>http://localhost:1313/blog/three-laws-for-living-with-ai/</link>
+				<pubDate>Thu, 11 Jun 2026 19:14:13 -0400</pubDate>
+				<guid>http://localhost:1313/blog/three-laws-for-living-with-ai/</guid>
+				<description>&lt;p&gt;We may not be at the point we need &lt;a href=&#34;https://en.wikipedia.org/wiki/Three_Laws_of_Robotics&#34;&gt;Laws of Robotics&lt;/a&gt; yet, but we’re reaching the point where we need some laws for living with AI.&lt;/p&gt;&#xA;&lt;p&gt;I’m not an AI doomsayer (at least, not yet). AI will solve problems that would take us hundreds of years (like finding new medicines or gene sequences), and it will free up time for humans to be creative and together.&lt;/p&gt;&#xA;&lt;p&gt;But alongside AI, we need laws to live with it without losing the essence of creativity—it’s here to assist us, not to replace us:&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>The Democrats’ Project 2029 Has To Go Big</title>
 				<link>http://localhost:1313/blog/project-2029-has-to-go-big/</link>
